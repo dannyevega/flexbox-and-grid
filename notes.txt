@@ -1,0 +1,4 @@
+By Default:
+  - setting display: flex; to any container will align all child elements in a row inside the container
+  - it fills the row from the left side
+  - we can change all of this other flex properties
