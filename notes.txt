@@ -2,3 +2,95 @@ By Default:
   - setting display: flex; to any container will align all child elements in a row inside the container
   - it fills the row from the left side
   - we can change all of this other flex properties
+  - flex items stretch to take up all the height of the flex-container
+
+Main axis:
+  - you can think of this as the horizontal axis which is default anytime you set a container to display: flex;
+
+Cross axis:  
+  - perpendicular to the horizontal axis which would be like a column alignment
+
+Flex-direction property:
+  - row (default)
+  - row-reverse
+  - column
+  - column-reverse  
+
+Justify-content property: 
+  --> best way to remember, think about text-align -- its similar. Gives appearance of floated elements. Aligns items on main axis which by default is horizontal left to right even if you only have one row
+    - flex-start (default)
+    - flex-end
+    - center
+    - space-around (gives equal spacing to left and right of each flex item in flex container)
+    - space-between (gives equal spacing in between each flex item in flex container with no spacing on left or right of first/last element -- expands the full width of flex container)   
+
+Align-items property: 
+  --> aligns items on cross axis which by default is perpendicular to main axis or top to bottom
+    - stretch (default)
+    - center
+    - flex-start
+    - flex-end
+    - baseline (aligns items by baseline of bottom of text. rarely used but makes sense when you have different font sizes in flex items)
+
+Flex wrap property:
+  --> use this for creating multiple rows of flex items within a flex container
+    - nowrap (default) --> will go outside of flex conatiner if width not large enough
+    - wrap --> will make flex items wrap to next line instead of overflowing outside of container
+    - wrap-reverse -->  reverses the order of rows
+
+--> flex-direction and flex-wrap are so closely related, there's a shorthand declaration similar to 'border' called flex-flow:
+  - flex-flow: row wrap;
+  - first declare the direction, then the wrap
+
+Align-content property:
+  --> will only make a difference if you have multiple rows because its going to define the behavior of the different rows and how their space is distributed along the cross (vertical) axis
+  --> if you only have one row, use align items
+  --> same declarations as justify-content and behaves the same way, just along the cross axis instead of main axis
+    - flex-start (default) 
+    - flex-end
+    - center
+    - space-around
+    - space-between
+
+Reordering flex items:
+  --> by default, all flex items have an order of 0 - they just flow along the natural structure of HTML
+    - order: 1
+      - or any other number to tell the flex items how to be ordered in the DOM without restructuring the HTML
+      - lets say you have 6 divs -- all of them have order 0 by default
+      - if you make the second div have an order: 1; -- it will then move after the last div
+      - you can also use negative values
+
+Align self property:
+  --> allows you to override align-items property for stubborn children (must not have align-content declared since this will require two or more rows)
+    - stretch (default)
+    - center
+    - flex-start
+    - flex-end
+    - baseline
+
+Flex grow, flex shrink and flex basis properties:
+  --> allows you to define how flex items will behave in their container if there is too much or too little space available
+  flex-grow:
+    - 0 (default)
+    - make flex-grow: 1; to tell items to take up all remaining space of containing div
+    - you can also target specific children to have more of a grow property so it will take up more space
+      - .container div:nth-child(2) {
+          flex-grow: 2;
+        }
+  flex-shrink:
+    - allows you to shrink flex-items if container is not wide enough to hold all items
+    - by default, flex-shrink is set to 1 which allows all items to shrink to fit inside container
+  flex-basis:
+    - allows you to set the height/width of a flex item depending on the direction (width when its a row and height when its a column)
+    - you can set flex-basis to a value and remove width from flex-item
+    - by default, its set to auto which will only take as much width as needed to take in content and padding
+
+  browser will calculate flex items based on:
+    - is there a flex-basis defined as a starting value?
+    - does container have space left or not enough space?
+    - look at flex-grow or flex-shrink
+    - calculate portions each item will grow/shrink
+
+  shorthand for all 3 properties:
+
+  flex: grow shrink basis;

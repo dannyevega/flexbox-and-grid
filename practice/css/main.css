@@ -1,4 +1,16 @@
 /* Your code goes here */
 .container {
   display: flex;
+  flex-direction: column;
+  border: 1px solid #FFF;
+  width: 800px;
+}
+
+.container div {
+  flex-basis: 100px;
+  margin: 0;
+}
+
+.container div:nth-child(2) {
+  flex-shrink: 2;
 }
