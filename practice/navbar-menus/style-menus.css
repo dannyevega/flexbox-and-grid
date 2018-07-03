@@ -1,0 +1,70 @@
+@import url('CSS/reset.css');
+@import url('CSS/layout.css');
+@import url('CSS/typography.css');
+@import url('CSS/masthead.css');
+
+.menu-section {
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #DCDDE1;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #353B48;
+  padding: .6em 1em;
+  display: block;
+  transition: all .5s ease;
+}
+
+.menu ul li a:hover {
+  background-color: #F5F6FA;
+}
+
+.menu-heading {
+  font-size: 2em;
+  font-size: normal;
+}
+
+@media screen and (min-width: 600px) {
+  .single-nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+  }
+  .single-nav ul li {
+    flex: 1 0 auto;
+    text-align: center;
+  }  
+
+  .advanced-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .advanced-nav ul li {
+    flex: 1 0 220px;
+  }
+  .advanced-nav ul li a {
+    display: flex; 
+  }
+  .advanced-nav ul li a .icon {
+    flex-basis: 60px;
+    font-size: 35px;
+  }
+  .advanced-nav ul li a .text {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .advanced-nav ul li a .text span {
+    display: block;
+    font-size: 15px;
+    font-weight: lighter;
+    font-style: italic;
+  }
+}

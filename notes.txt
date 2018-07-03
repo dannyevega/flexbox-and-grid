@@ -17,24 +17,33 @@ Flex-direction property:
   - column-reverse  
 
 Justify-content property: 
-  --> best way to remember, think about text-align -- its similar. Gives appearance of floated elements. Aligns items on main axis which by default is horizontal left to right even if you only have one row
-    - flex-start (default)
-    - flex-end
-    - center
-    - space-around (gives equal spacing to left and right of each flex item in flex container)
-    - space-between (gives equal spacing in between each flex item in flex container with no spacing on left or right of first/last element -- expands the full width of flex container)   
+  --> best way to remember, think about text-align -- its similar. Gives appearance of floated elements. Moves flex items on main axis which by default is horizontal left to right even if you only have one row. How the remaining space in the container will be distributed around the flex elements if there is any remaining space in the container.
+
+    - flex-start (default): align items to beginning of flex-container
+
+    - flex-end: align items to end of flex-container
+
+    - center: centers content inside the flex-container
+
+    - space-around: gives equal spacing to left and right of each flex item in flex-container
+
+    - space-between: gives equal spacing in between each flex item in flex-container with no spacing at beginning or end 
 
 Align-items property: 
-  --> aligns items on cross axis which by default is perpendicular to main axis or top to bottom
-    - stretch (default)
-    - center
-    - flex-start
-    - flex-end
-    - baseline (aligns items by baseline of bottom of text. rarely used but makes sense when you have different font sizes in flex items)
+  --> aligns items on cross axis which by default is perpendicular (column) to main axis or top to bottom
+    - stretch (default): stretches elements to fill container
+
+    - center: centers content inside the flex-container along the cross-axis
+
+    - flex-start: align items along cross-axis to start of flex-container
+
+    - flex-end: align items along cross-axis to end of flex-container
+
+    - baseline: aligns items by baseline of bottom of text. rarely used but makes sense when you have different font sizes in flex items
 
 Flex wrap property:
   --> use this for creating multiple rows of flex items within a flex container
-    - nowrap (default) --> will go outside of flex conatiner if width not large enough
+    - nowrap (default) --> will go outside of flex-container if width not large enough
     - wrap --> will make flex items wrap to next line instead of overflowing outside of container
     - wrap-reverse -->  reverses the order of rows
 
@@ -69,18 +78,26 @@ Align self property:
     - baseline
 
 Flex grow, flex shrink and flex basis properties:
-  --> allows you to define how flex items will behave in their container if there is too much or too little space available
+  --> allows you to define how flex items will behave in their container relative to each other. If it's a row, it will control the width. If its a column, it will control the height. 
   flex-grow:
     - 0 (default)
-    - make flex-grow: 1; to tell items to take up all remaining space of containing div
+
+    - make flex-grow: 1; to tell items to take up all remaining space of containing div. It will distribute free space equally to each elements size. If you add flex-grow to just one element, only that element will take up remaining free space
+
     - you can also target specific children to have more of a grow property so it will take up more space
       - .container div:nth-child(2) {
           flex-grow: 2;
         }
+
   flex-shrink:
     - allows you to shrink flex-items if container is not wide enough to hold all items
     - by default, flex-shrink is set to 1 which allows all items to shrink to fit inside container
+    - you can set flex-shrink: 0; to an item to stop it from shrinking. When you resize, they will wrap to next row with flex-wrap: wrap; good tip for responsive design
+
   flex-basis:
+    - very similar to 'width' property
+    - allows you to set initial size of flex element before distributing any free space of the container
+    - example: if you set a flex-item to flex-basis: 100px; you're telling the browser as long as theres space remaining in flex-container, I want this flex-items width to start at 100px. On browser resize, when theres not more space available in the container to keep the 100px, just shrink it
     - allows you to set the height/width of a flex item depending on the direction (width when its a row and height when its a column)
     - you can set flex-basis to a value and remove width from flex-item
     - by default, its set to auto which will only take as much width as needed to take in content and padding

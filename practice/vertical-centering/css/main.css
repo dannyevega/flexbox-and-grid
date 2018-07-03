@@ -1,0 +1,46 @@
+/* 
+You could use vertical-align: middle; which is available thru CSS but only works on inline elements and for table cells -- usually useless
+*/
+
+/*
+To center:
+  align-items: center;
+  justify-content: center;
+
+Alternatively, you can just set align-items and have everything inside our div set to margin: auto;
+This works if you only have one element. If there are multiple, it will still center vertically but be displayed similar to justify-content: space-around; so you can play with how you want to achieve this
+  .center {
+    align-items: center;
+  }
+
+  .center * {
+    margin: auto;
+  }
+*/
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  border: 1px solid #FFF;
+}
+
+p {
+  margin: 0;
+}
+
+/*.center * {
+  margin: auto;
+}*/
+
+nav {
+  width: 400px;
+}
+
+
+li {
+  list-style: none;
+  flex-basis: 25%;
+  /*flex-grow: 1;*/ /* will make all li items fill the container */ 
+}
