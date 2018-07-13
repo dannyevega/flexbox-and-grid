@@ -1,0 +1,34 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  margin: 0;  
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #27ae60;
+}
+
+main {
+  background-color: #3498db;
+}
+
+footer {
+  background-color: #c0392b;
+}
+
+header,
+footer {
+  height: 60px;
+}
+
+main {
+  flex: 1 0 0;
+}
