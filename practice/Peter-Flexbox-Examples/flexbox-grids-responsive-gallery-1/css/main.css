@@ -1,6 +1,7 @@
 /* Your code goes here */
 .grid {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .gutters {
